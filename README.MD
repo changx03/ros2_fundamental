@@ -4,6 +4,25 @@ This is the coding project for ROS2 tutorial series by Edouard Renard.
 
 ## Get started
 
+### Start from an empty folder
+
+To create a new package (**This code has already created multiple packages**)
+
+```bash
+# For a python package
+ros2 pkg create <pkg_name> --build-type ament_python
+
+# For a C++ package
+ros2 pkg create <pkg_name> --build-type ament_cpp
+```
+
+If encounter a deprecated error on `setup.py`, run `pip install --upgrade setuptools==58.2.0`
+
+---
+
+### For this repo
+
+Starts from here
 
 ```bash
 # Add dependencies to the terminal
@@ -62,8 +81,10 @@ ros2 run <pkg_name> <node_name> --ros_args --remap __node:=<new_node_name>
 
 ## Topic
 
-Each topic contains publishers and subscribers.\
-Multiple publishers with the same `topic_name` is allowed.
+- Topics are used for data streaming.
+- Topics do not wait for response.
+- Multiple publishers and subscribers can attach to the same topic.
+- Multiple publishers with the same `topic_name` is allowed.
 
 ```bash
 # Show running topics
@@ -96,4 +117,18 @@ ros2 run my_cpp_pkg robot_news_station --ros-args --remap robot_news:=my_news
 # for subscriber
 ros2 run my_cpp_pkg smartphone --ros-args --remap robot_news:=my_news
 
+```
+
+## Service
+
+- Services are used for client/server interactions.
+
+```bash
+ros2 service list
+
+# Create a service call
+ros2 service call <service_name> <service_interface> "<request_values>"
+
+# e.g.
+ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 3, b: 4}"
 ```

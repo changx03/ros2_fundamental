@@ -26,6 +26,9 @@ setup(
             'turtle_ctrl=my_robot_controller.turtle_ctrl:main',
             'py_sub=my_robot_controller.my_subscriber:main',
             'num_counter=my_robot_controller.number_counter:main',
+            'add_two_ints_server=my_robot_controller.add_two_ints_server:main',
+            'add_two_client1=my_robot_controller.add_two_client_1:main',
+            'add_two_client2=my_robot_controller.add_two_client_2:main',
         ],
     },
 )

@@ -9,7 +9,7 @@ public:
         subscriber_ = this->create_subscription<example_interfaces::msg::Int64>(
             "number", 10,
             std::bind(&NumberCounter::callbackCounter, this, std::placeholders::_1));
-        publisher_ = this->create_publisher<example_interfaces::msg::Int64>("number_counter", 10);
+        publisher_ = this->create_publisher<example_interfaces::msg::Int64>("number_count", 10);
         RCLCPP_INFO(this->get_logger(), "Number counter has been started!");
     }
 
