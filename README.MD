@@ -87,4 +87,13 @@ ros2 topic hz /<topic_name>
 # Print the interface of a topic
 ros2 interface show example_interfaces/msg/String
 
+# Remap topic name
+# This works for both publisher and subscriber
+ros2 run my_cpp_pkg robot_news_station --ros-args --remap <topic_name>:=<new_topic_name>
+
+# e.g., for publisher
+ros2 run my_cpp_pkg robot_news_station --ros-args --remap robot_news:=my_news
+# for subscriber
+ros2 run my_cpp_pkg smartphone --ros-args --remap robot_news:=my_news
+
 ```
