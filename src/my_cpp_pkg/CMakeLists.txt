@@ -25,12 +25,24 @@ ament_target_dependencies(num_publisher rclcpp example_interfaces)
 add_executable(num_counter src/number_counter.cpp)
 ament_target_dependencies(num_counter rclcpp example_interfaces)
 
+add_executable(add_two_server src/add_two_server.cpp)
+ament_target_dependencies(add_two_server rclcpp example_interfaces)
+
+add_executable(add_two_client_1 src/add_two_client_1.cpp)
+ament_target_dependencies(add_two_client_1 rclcpp example_interfaces)
+
+add_executable(add_two_client_2 src/add_two_client_2.cpp)
+ament_target_dependencies(add_two_client_2 rclcpp example_interfaces)
+
 install(TARGETS
   cpp_node
   robot_news_station
   smartphone
   num_publisher
   num_counter
+  add_two_server
+  add_two_client_1
+  add_two_client_2
   DESTINATION lib/${PROJECT_NAME}
 )
 
