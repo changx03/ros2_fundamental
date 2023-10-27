@@ -4,10 +4,9 @@ This is the coding project for ROS2 tutorial series by Edouard Renard.
 
 ## Get started
 
-Add dependencies to the terminal:
 
 ```bash
-# Add dependencies
+# Add dependencies to the terminal
 source ./ros2.sh
 
 # Initial build
@@ -34,9 +33,14 @@ To build a specific package:
 colcon build --symlink-install --packages-select <pkg_name>
 ```
 
+The `symlink-install` flag provides runtime updates.
+
 ### Run a node
 
 ```bash
+ros2 run <pkg_name> <node_name>
+
+# e.g.
 ros2 run my_robot_controller my_first_node
 ```
 
@@ -52,18 +56,35 @@ ros2 node list
 # Show node info
 ros2 node info /<node_name>
 
+# Rename a node (This allows you to create multiple instances of the same node)
+ros2 run <pkg_name> <node_name> --ros_args --remap __node:=<new_node_name>
+```
+
+## Topic
+
+Each topic contains publishers and subscribers.\
+Multiple publishers with the same `topic_name` is allowed.
+
+```bash
 # Show running topics
 ros2 topic list
 
 # Show topic info
 ros2 topic info /<topic_name>
 
-# Print data from a topic
+# Subscribe a topic from the terminal
 ros2 topic echo /<topic_name>
 
-# Show running services
-ros2 service list
+# Publish a topic from the terminal
+ros2 topic pub -r <hz> /<topic_name> <topic_interface> "<topic_content>"
 
-# Rename a node (This allows you to create multiple instances of the same node)
-ros2 run <pkg_name> <node_name> --ros_args --remap __node:=<new_node_name>
+# e.g.
+ros2 topic pub -r 10 /robot_news example_interfaces/msg/String "{data: 'Hello from terminal'}"
+
+# Get frequency
+ros2 topic hz /<topic_name>
+
+# Print the interface of a topic
+ros2 interface show example_interfaces/msg/String
+
 ```
