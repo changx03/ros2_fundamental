@@ -131,4 +131,15 @@ ros2 service call <service_name> <service_interface> "<request_values>"
 
 # e.g.
 ros2 service call /add_two_ints example_interfaces/srv/AddTwoInts "{a: 3, b: 4}"
+
+# Get service interface
+ros2 service type <service_name>
+
+# Get parameters for the interface (For both request and response)
+ros2 interface show <interface_name>
+
+# Remap service name
+ros2 run <pkg_name> <node_name> --ros-args --remap <service_name>:=<new_service_name>
 ```
+
+Use `rtq` to create service call in the GUI.

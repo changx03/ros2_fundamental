@@ -3,7 +3,7 @@
 
 class NumberPublisher : public rclcpp::Node {
 public:
-    NumberPublisher() : Node("num_publisher"), number_(0) {
+    NumberPublisher() : Node("num_publisher"), number_(1) {
         publisher_ = this->create_publisher<example_interfaces::msg::Int64>("number", 10);
         timer_ = this->create_wall_timer(std::chrono::milliseconds(500),
             std::bind(&NumberPublisher::publishNumber, this));
@@ -15,7 +15,6 @@ private:
         auto msg = example_interfaces::msg::Int64();
         msg.data = number_;
         publisher_->publish(msg);
-        number_ += 1;
     }
 
     long number_;

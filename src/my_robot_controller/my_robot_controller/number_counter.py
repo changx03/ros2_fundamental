@@ -10,10 +10,11 @@ class NumberCounter(Node):
             Int64, 'number_counter', 10)
         self.num_subscriber_ = self.create_subscription(
             Int64, 'number', self.callback_number, 10)
+        self.counter_ = 0
         self.get_logger().info("Number counter has been started!")
 
     def callback_number(self, msg):
-        self.counter_ = msg.data
+        self.counter_ += msg.data
         next_msg = Int64()
         next_msg.data = self.counter_
         self.num_count_publisher_.publish(next_msg)
