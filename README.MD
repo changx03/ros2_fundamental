@@ -7,7 +7,17 @@ This is the coding project for ROS2 tutorial series by Edouard Renard.
 Add dependencies to the terminal:
 
 ```bash
+# Add dependencies
 source ./ros2.sh
+
+# Initial build
+colcon build
+```
+
+Add packages dependencies to `./ros2.sh` file:
+
+```bash
+source <workspace_directory>/install/setup.bash
 ```
 
 ### Build package
