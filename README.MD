@@ -143,3 +143,16 @@ ros2 run <pkg_name> <node_name> --ros-args --remap <service_name>:=<new_service_
 ```
 
 Use `rtq` to create service call in the GUI.
+
+## VS Code Intellisense for Python
+
+Add the following to local `settings.json`
+
+```json
+"python.autoComplete.extraPaths": [
+    "~/ws_ros2/install/my_robot_controller/lib/python3.10/site-packages",
+    "~/ws_ros2/install/my_interfaces/local/lib/python3.10/dist-packages",
+    "/opt/ros/humble/lib/python3.10/site-packages",
+    "/opt/ros/humble/local/lib/python3.10/dist-packages"
+]
+```

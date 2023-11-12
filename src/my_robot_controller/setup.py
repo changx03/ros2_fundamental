@@ -29,6 +29,7 @@ setup(
             'add_two_ints_server=my_robot_controller.add_two_ints_server:main',
             'add_two_client1=my_robot_controller.add_two_client_1:main',
             'add_two_client2=my_robot_controller.add_two_client_2:main',
+            'hw_status_publisher=my_robot_controller.hw_status_publisher:main'
         ],
     },
 )
